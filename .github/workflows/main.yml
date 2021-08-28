@@ -1,0 +1,26 @@
+name: microcms
+
+on:
+  repository_dispatch:
+    types: [updata]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    - name: install
+      run: npm ci
+
+#     - name: add env.production
+#       run: |
+#         touch .env.production
+#         echo "API_KEY=${{ secrets.SECRET_MICRO_API }}" >> .env.production
+    - name: build
+      run: node dl
