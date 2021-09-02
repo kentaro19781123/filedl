@@ -26,9 +26,9 @@ jobs:
       run: node dl
       # run: echo "${{ toJSON(github.event.client_payload) }}"
 
-      - name: save image
-      uses: actions/upload-artifact@v2
-      if: !failure()
-      with:
-        name: dist
-        path: ./dist
+    - name: save image
+    uses: actions/upload-artifact@v2
+    if: !failure()
+    with:
+      name: dist
+      path: ./dist
