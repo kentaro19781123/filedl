@@ -28,7 +28,6 @@ jobs:
 
     - name: save image
       uses: actions/upload-artifact@v2
-      if: !failure()
       with:
-        name: dist
-        path: ./dist
+        name: image
+        path: ./image
