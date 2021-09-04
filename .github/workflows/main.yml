@@ -46,5 +46,6 @@ jobs:
         git status
         git add .
         git commit -m "画像追加"
+        git status
         git branch
         # git push ${REPO} HEAD:main || true
