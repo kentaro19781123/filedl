@@ -8,7 +8,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     env:
-      REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+      REPO: https://kentaro19781123:${{secrets.SECRET_MY_TOKEN}}@github.com/kentaro19781123/filedl.git
 
     steps:
     - uses: actions/checkout@v2
