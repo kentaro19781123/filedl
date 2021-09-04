@@ -45,4 +45,4 @@ jobs:
         git status
         git add .
         git commit -m "画像追加"
-        git push ${REPO} origin main || true
+        git push ${REPO} origin HEAD:main || true
