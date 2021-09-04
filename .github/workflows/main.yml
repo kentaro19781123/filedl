@@ -1,6 +1,7 @@
 name: microcms
 
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [updata]
 
