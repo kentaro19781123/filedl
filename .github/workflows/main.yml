@@ -47,4 +47,4 @@ jobs:
         git add .
         git commit -m "画像追加"
         git branch
-        # git push ${REPO} origin HEAD:main || true
+        # git push ${REPO} HEAD:main || true
