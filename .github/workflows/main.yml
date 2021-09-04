@@ -7,8 +7,13 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
+    env:
+      REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
 
     - name: setup node
       uses: actions/setup-node@v1
@@ -30,4 +35,11 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: image
-        path: ./image
+        # path: ./image
+        path: ${{ github.workspace }}/image
+
+    - name: commit artifact and push
+      run: |
+        git config --global user.email "kens19781123@gmai.com"
+        git config --global user.name "kentaro19781123"
+        git status
