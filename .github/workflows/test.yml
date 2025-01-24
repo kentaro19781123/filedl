@@ -17,7 +17,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: "Asia/Tokyo"
-          TITLE: $(date +%Y-%m-%d)
+          TITLE: "$(date +%Y-%m-%d)"
         run: echo "TITLE2=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Create Pull Request
