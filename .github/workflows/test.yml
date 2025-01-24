@@ -1,0 +1,29 @@
+name: test
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - test
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Val
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: "Asia/Tokyo"
+          TITLE: date + %Y-%m-%d
+        run: echo "TITLE2=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        run: |
+          echo $(date + '%Y-%m-%d')
+          echo ${{ env.TITLE }}
+          echo ${{ env.TITLE2 }}
+          # gh pr create --head test -B test2 -t ${{ env.TITLE }} -b ""
+          # gh pr create --head test -B test3 -t ${{ env.TITLE2 }} -b ""
